@@ -153,3 +153,38 @@ chatInput.addEventListener("keydown", (e) => {
 
 loadDataFromLocalstorage();
 sendButton.addEventListener("click", handleOutgoingChat);
+
+// Function to prompt user for API key input
+const promptAPIKey = () => {
+    const apiKey = prompt("Please enter your OpenAI API key:");
+    if (apiKey) {
+        localStorage.setItem("apiKey", apiKey);
+        return apiKey;
+    } else {
+        alert("API key is required to use this website.");
+        return null;
+    }
+};
+
+// Function to check if API key exists in local storage
+const getAPIKey = () => {
+    let apiKey = localStorage.getItem("apiKey");
+    if (!apiKey) {
+        apiKey = promptAPIKey();
+    }
+    return apiKey;
+};
+
+// Function to initialize the application
+const initializeApp = () => {
+    const apiKey = getAPIKey();
+    if (!apiKey) {
+        return; // Stop initialization if API key is not provided
+    }
+
+    // Your existing initialization code here
+};
+
+// Call initializeApp to start the application
+initializeApp();
+
