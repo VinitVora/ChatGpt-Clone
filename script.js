@@ -29,7 +29,7 @@ const promptAPIKey = () => {
 const isValidAPIKey = (apiKey) => {
     // Add your validation logic here
     // For example, check if the key is of a certain length or format
-    return apiKey.length === 64; // Assuming API key length is 64 characters
+    return apiKey.length === 50; // Assuming API key length is 64 characters
 };
 
 // Function to get API key from local storage or prompt user for input
